@@ -12,7 +12,7 @@ app.use(morgan('dev'))
 mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log('connected to rtvdb'))
 
-app.use(express.static(path.join(__dirname, 'client', 'build')))
+app.use(express.static(path.join(__dirname, 'client', 'dist', 'assets')))
 app.use('/api/auth', require('./routes/authRouter.js'))
 app.use('/api/protected', jwt({ secret: process.env.USER_SECRET, algorithms: ['HS256'] }))
 app.use('/api/protected/issues', require('./routes/issueRouter.js'))
@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
 })
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 })
 
 app.listen(9000)
