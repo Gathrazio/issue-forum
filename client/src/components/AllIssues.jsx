@@ -29,6 +29,9 @@ export default function AllIssues () {
                 <div className="all-title">
                      View and interact with all issues!
                 </div>
+                <div className="user-piece">
+                    @{JSON.parse(localStorage.getItem("user")).username}
+                </div>
             </div>
             <div className="issue-bay">
             {sortedIssues.map(issue => <Issue key={issue._id} {...issue} />)}
