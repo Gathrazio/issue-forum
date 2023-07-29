@@ -1,0 +1,268 @@
+/* global styling */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* Signin stuff */
+
+.auth-wrapper, .newissue-wrapper {
+  display: flex;
+  background-color: rgba(159, 177, 193, 0.823);
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.member {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  transition: 0.1s;
+}
+
+.auth-form, .issue-form {
+  padding: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border: 1px solid rgb(145, 145, 145);
+  border-radius: 8px;
+}
+
+.auth-input, .auth-button, .issue-input, .issue-button {
+  padding: 15px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 8px;
+  transition: 0.1s;
+  margin: 5px;
+}
+
+.auth-button:hover, .member:hover, .logout-button:hover, .issue-option:hover, .issue-button:hover, .comment-toggle-button:hover {
+  cursor: pointer;
+  background-color: rgb(155, 155, 155);
+  color: white;
+  transition: .1s;
+}
+
+/* Profile */
+
+.issue-form {
+  width: 500px;
+}
+
+.nav-wrapper {
+  height: 150px;
+  display: flex;
+  background-color: antiquewhite;
+}
+
+.options-wrapper {
+  display: grid;
+  width: 100%;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "my-issues all-issues new-issue";
+}
+
+.my-issues {
+  grid-area: "my-issues";
+}
+
+.all-issues {
+  grid-area: "all-issues";
+}
+
+.new-issue {
+  grid-area: "new-issue";
+}
+
+.issue-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.logout-button {
+  width: 150px;
+  border: none;
+  background-color: rgb(190, 132, 244);
+  font-size: 1.4rem;
+  transition: 0.1s;
+}
+
+.welcomebar-wrapper {
+  background-color: rgb(143, 205, 253);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.newissue-wrapper, .myissues-wrapper {
+  height: calc(100vh - 230px);
+  background-color: brown;
+  padding: 10px;
+}
+
+.myissues-wrapper {
+  overflow-y: scroll;
+  padding-bottom: 0px;
+}
+
+
+.selected {
+  background-color: rgb(120, 120, 120);
+}
+
+.issue-input-description {
+  height: 150px;
+}
+
+.issue-wrapper {
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: rgb(247, 240, 209);
+}
+
+.issue-description {
+  background-color: none;
+  padding: 10px;
+}
+
+/* Comment stylings */
+
+.comment-wrapper {
+  background-color: chocolate;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.comment-body {
+  color: rgb(225, 225, 225);
+  margin-top: 10px;
+}
+
+.comment-toggle-button {
+  border: none;
+  background-color: rgb(97, 208, 208);
+  padding: 10px;
+  transition: 0.1s;
+  margin-right: 5px;
+}
+
+.comment-input {
+  border: none;
+  background-color: rgb(44, 44, 44);
+  color: rgb(225, 225, 225);
+  margin-top: 5px;
+  margin-bottom: -3px;
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.comment-author-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.comment-author {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-left: -1px;
+}
+
+.comment-button-likes-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  margin-left: -1px;
+}
+
+.issue-title-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: rgb(255, 169, 83);
+}
+
+.issue-title {
+  line-height: 48px;
+  font-size: 1.4rem;
+}
+
+.react-icons {
+  font-size: 2rem;
+  margin: 0px 5px -5px 5px;
+}
+
+.like-dislike-wrapper {
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.like-wrapper:hover, .dislike-wrapper:hover {
+  cursor: pointer;
+}
+
+/* All Issues */
+
+.allissues-wrapper {
+  height: 100vh;
+  background-color: cadetblue;
+}
+
+.all-issues-wrap {
+  display: flex;
+  justify-content: left;
+}
+
+.back-wrapper {
+  position: absolute;
+  background-color: rgb(179, 255, 208);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin-left: -5px;
+}
+
+.back-wrapper:hover {
+  cursor: pointer;
+  background-color: rgba(212, 212, 212, 0.566);
+}
+
+.react-icons-issues {
+  font-size: 3rem;
+}
+
+.all-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.issue-bay {
+  height: calc(100vh - 80px);
+  padding: 10px;
+  overflow-y: scroll;
+  padding-bottom: 0px;
+}
