@@ -55,7 +55,7 @@ export default function UserProvider (props) {
     }
 
     function retrieveUsers () {
-        axios.get(`/api/users`)
+        userAxios.get(`/api/protected/users`)
             .then(res => setUsers(res.data))
             .catch(err => console.log(err))
     }
@@ -84,8 +84,11 @@ export default function UserProvider (props) {
     }
 
     useEffect(() => {
-        retrieveUsers()
-    }, [])
+        if (localStorage.getItem('user')) {
+            retrieveUsers()
+        }
+        
+    }, [userState])
 
 
     return (
