@@ -60,29 +60,6 @@ export default function UserProvider (props) {
             .catch(err => console.log(err))
     }
 
-    async function postIssue (newIssue) {
-        const res = await userAxios.post('/api/protected/issues', newIssue);
-        return res;
-    }
-
-    function addIssue (postedIssue) {
-        setUserState(prev => ({
-            ...prev,
-            issues: [...prev.issues, postedIssue]
-        }))
-    }
-
-    function updateIssue (issue) {
-        if (issue.author === JSON.parse(localStorage.getItem("user"))._id) {
-            const issueIndex = userState.issues.findIndex(thisIssue => thisIssue._id === issue._id);
-            setUserState(prev => ({
-                ...prev,
-                issues: prev.issues.toSpliced(issueIndex, 1, issue)
-            }))
-        }
-        
-    }
-
     useEffect(() => {
         if (localStorage.getItem('user')) {
             retrieveUsers()
@@ -100,9 +77,6 @@ export default function UserProvider (props) {
                 login,
                 logout,
                 setUser,
-                postIssue,
-                addIssue,
-                updateIssue,
                 updateUsers
             }}>
             { props.children }

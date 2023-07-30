@@ -5,8 +5,7 @@ import Swal from 'sweetalert2'
 
 export default function IssueForm () {
 
-    const { postIssue, addIssue } = useContext(UserContext);
-    const { addGlobalIssue } = useContext(IssueContext);
+    const { addGlobalIssue, postGlobalIssue } = useContext(IssueContext);
 
     const [inputValues, setInputValues] = useState({
         title: '',
@@ -23,10 +22,9 @@ export default function IssueForm () {
 
     function handleSubmit (e) {
         e.preventDefault()
-        postIssue(inputValues)
+        postGlobalIssue(inputValues)
             .then(
                 function (res) {
-                    addIssue(res.data)
                     addGlobalIssue(res.data)
                     Swal.fire({
                         icon: "success",

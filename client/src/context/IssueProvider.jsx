@@ -46,6 +46,11 @@ export default function IssueProvider (props) {
         ])
     }
 
+    async function postGlobalIssue (newIssue) {
+        const res = await userAxios.post('/api/protected/issues', newIssue);
+        return res;
+    }
+
     function addGlobalIssue (issue) {
         setIssues(prev => [
             ...prev,
@@ -64,6 +69,7 @@ export default function IssueProvider (props) {
             issues,
             addComment,
             addGlobalIssue,
+            postGlobalIssue,
             updateGlobalIssue
         }}>
             {props.children}

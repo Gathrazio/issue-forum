@@ -18,7 +18,7 @@ userAxios.interceptors.request.use(config => {
 export default function Issue (props) {
 
     const { comments, addComment, updateGlobalIssue } = useContext(IssueContext);
-    const { users, updateIssue } = useContext(UserContext);
+    const { users } = useContext(UserContext);
 
     const relevantComments = comments.filter(comment => comment.issue === props._id)
 
@@ -56,19 +56,17 @@ export default function Issue (props) {
                     }]
                 })
                     .then(res => {
-                        updateIssue(res.data)
                         updateGlobalIssue(res.data)
                     })
                     .catch(err => console.log(err))
             } else {
-                userAxios.put(`/api/protected/issues/update/${props._id}`, {
+                userAxios.put(`/api/protected/issues/update/likes/${props._id}`, {
                     opinions: props.opinions.toSpliced(userIndex, 1, {
                         user: JSON.parse(localStorage.getItem("user"))._id,
                         agree: agree
                     })
                 })
                     .then(res => {
-                        updateIssue(res.data)
                         updateGlobalIssue(res.data)
                     })
                     .catch(err => console.log(err))
