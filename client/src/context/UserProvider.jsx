@@ -1,5 +1,6 @@
 import { useState, createContext, useEffect } from 'react'
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 export const UserContext = createContext();
 
@@ -37,6 +38,13 @@ export default function UserProvider (props) {
             user: {},
             token: '',
             issues: []
+        })
+        Swal.fire({
+            icon: "success",
+            title: "You have been successfully logged out.",
+            confirmButtonText: "OK",
+            width: '350px',
+            position: 'center'
         })
     }
 
