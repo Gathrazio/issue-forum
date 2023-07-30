@@ -15,8 +15,7 @@ export default function UserProvider (props) {
 
     const initState = {
         user: JSON.parse(localStorage.getItem("user")) || {},
-        token: localStorage.getItem("token") || '',
-        issues: []
+        token: localStorage.getItem("token") || ''
     };
     const [userState, setUserState] = useState(initState);
     const [users, setUsers] = useState([]);
@@ -53,16 +52,13 @@ export default function UserProvider (props) {
         }))
         localStorage.setItem("token", token)
         localStorage.setItem("user", JSON.stringify(user))
-        loadUserIssues()
     }
 
     function retrieveUsers () {
-        userAxios.get(`/api/protected/users`)
+        axios.get(`/api/users`)
             .then(res => setUsers(res.data))
             .catch(err => console.log(err))
     }
-
-    console.log(users)
 
     async function postIssue (newIssue) {
         const res = await userAxios.post('/api/protected/issues', newIssue);
@@ -74,17 +70,6 @@ export default function UserProvider (props) {
             ...prev,
             issues: [...prev.issues, postedIssue]
         }))
-    }
-
-    function loadUserIssues () {
-        userAxios.get('/api/protected/issues/user')
-            .then(res => {
-                setUserState(prevState => ({
-                    ...prevState,
-                    issues: res.data
-                }))
-            })
-            .catch(err => console.log(err))
     }
 
     function updateIssue (issue) {
@@ -99,10 +84,7 @@ export default function UserProvider (props) {
     }
 
     useEffect(() => {
-        if (localStorage.getItem("token")) {
-            loadUserIssues()
-            retrieveUsers()
-        }
+        retrieveUsers()
     }, [])
 
 

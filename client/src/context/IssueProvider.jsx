@@ -1,4 +1,5 @@
-import { useState, createContext, useEffect } from 'react'
+import { useState, createContext, useContext, useEffect } from 'react'
+import { UserContext } from './UserProvider.jsx'
 import axios from 'axios';
 
 export const IssueContext = createContext();
@@ -16,13 +17,15 @@ export default function IssueProvider (props) {
     const [comments, setComments] = useState([]);
     const [issues, setIssues] = useState([]);
 
+    const { userInfo } = useContext(UserContext);
+
     useEffect(() => {
         if (localStorage.getItem("token")) {
             retrieveComments()
             retrieveIssues()
         }
         
-    }, [])
+    }, [userInfo])
 
     function retrieveComments () {
         userAxios.get(`/api/protected/comments`)

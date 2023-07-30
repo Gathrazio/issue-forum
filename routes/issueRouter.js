@@ -23,14 +23,14 @@ issueRouter.get('/', (req, res, next) => { // get all issues
         })
 })
 
-issueRouter.get('/user', (req, res, next) => {
-    Issue.find({ author: req.auth._id })
-        .then(usersIssues => res.status(200).send(usersIssues))
-        .catch(err => {
-            res.status(500)
-            return next(new Error("Failed to find the user's posted issues."))
-        })
-})
+// issueRouter.get('/user', (req, res, next) => {
+//     Issue.find({ author: req.auth._id })
+//         .then(usersIssues => res.status(200).send(usersIssues))
+//         .catch(err => {
+//             res.status(500)
+//             return next(new Error("Failed to find the user's posted issues."))
+//         })
+// })
 
 issueRouter.put('/update/:issueID', (req, res, next) => { // update an issue, but only if the user is the author
     Issue.findOneAndUpdate(
