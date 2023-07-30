@@ -29,7 +29,9 @@ export default function IssueForm () {
                     Swal.fire({
                         icon: "success",
                         title: "Issue posted!",
-                        confirmButtonText: "OK"
+                        confirmButtonText: "OK",
+                        width: '350px',
+                        position: 'center'
                     })
                     setInputValues({
                         title: '',
@@ -40,7 +42,9 @@ export default function IssueForm () {
                     Swal.fire({
                         icon: "error",
                         title: "Issue failed to post...",
-                        confirmButtonText: "OK"
+                        confirmButtonText: "OK",
+                        width: '350px',
+                        position: 'center'
                     })
                     console.dir(err.response.data.errMsg)
                 }

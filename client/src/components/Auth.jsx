@@ -32,14 +32,18 @@ export default function Auth () {
                     Swal.fire({
                         icon: "success",
                         title: "You are logged in!",
-                        confirmButtonText: "OK"
+                        confirmButtonText: "OK",
+                        width: '350px',
+                        position: 'center'
                     })
                 },
                 function (err) {
                     Swal.fire({
                         icon: "error",
                         title: err.response.data.errMsg,
-                        confirmButtonText: "OK"
+                        confirmButtonText: "OK",
+                        width: '350px',
+                        position: 'center'
                     })
                 }
             )
@@ -55,7 +59,9 @@ export default function Auth () {
                     Swal.fire({
                         icon: "success",
                         title: "Your account has been successfully created and you are logged in!",
-                        confirmButtonText: "OK"
+                        confirmButtonText: "OK",
+                        width: '350px',
+                        position: 'center'
                     })
                     const thinnedUser = {...res.data.user};
                     delete thinnedUser.isAdmin
@@ -65,7 +71,9 @@ export default function Auth () {
                     Swal.fire({
                         icon: "error",
                         title: err.response.data.errMsg,
-                        confirmButtonText: "OK"
+                        confirmButtonText: "OK",
+                        width: '350px',
+                        position: 'center'
                     })
                 }
             )

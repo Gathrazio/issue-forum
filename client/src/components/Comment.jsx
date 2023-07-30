@@ -17,7 +17,7 @@ export default function Comment (props) {
     return (
         <div className="comment-wrapper">
             <div className="comment-author-line">
-                <p className="date"> <b>@{commentAuthor}</b> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; <em>{renderDate(props.createdAt)}</em></p>
+                <p className="date"> <b>@{commentAuthor}</b> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; <em className="full-date">{renderDate(props.createdAt)[0]}</em><em className="shortened-date">{renderDate(props.createdAt)[1]}</em></p>
             </div>
             <p className="comment-body">{props.body}</p>
         </div>

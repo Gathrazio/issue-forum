@@ -19,7 +19,7 @@
 }
 
 .member {
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
   border: none;
   transition: 0.1s;
@@ -27,10 +27,11 @@
 
 .auth-form, .issue-form {
   padding: 20px;
-  margin: 30px;
+  margin: 5px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 300px;
   border: 1px solid rgb(145, 145, 145);
   border-radius: 8px;
 }
@@ -52,10 +53,6 @@
 }
 
 /* Profile */
-
-.issue-form {
-  width: 500px;
-}
 
 .nav-wrapper {
   height: 150px;
@@ -187,6 +184,11 @@
 .comment-button-likes-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.likes-block {
+  margin-right: 0px;
 }
 
 .date {
@@ -204,7 +206,8 @@
 }
 
 .issue-title {
-  line-height: 48px;
+  margin: 5px 0px 5px 0px;
+  line-height: 30px;
   font-size: 1.4rem;
 }
 
@@ -290,4 +293,46 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* window width changes */
+
+@media only screen and (max-width: 390px) {
+  .comment-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 5px;
+  }
+  .likes-block {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .options-wrapper {
+    grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+    grid-template-areas: 
+    "my-issues"
+    "all-issues"
+    "new-issue";
+  }
+}
+
+.shortened-date {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .all-title {
+    display: none;
+  }
+  .full-date {
+    display: none;
+  }
+  .shortened-date {
+    display: inline-block;
+  }
 }

@@ -105,5 +105,8 @@ export default function renderDate (utcDate) {
         }
     }
 
-    return `${toEnglishDay(orderDate.getDay())}, ${toAbbrevEnglishMonth(orderDate.getMonth() + 1)} ${orderDate.getDate()}${toCorrectDaySuffix(orderDate.getDate())} ${orderDate.getFullYear()} at ${militaryToRegular(orderDate.getHours())}:${minutesToDesiredForm(orderDate.getMinutes())} ${dayInterval} ${findTimeZone(orderDate[Symbol.toPrimitive]('string'))}`
+    const fullDate = `${toEnglishDay(orderDate.getDay())}, ${toAbbrevEnglishMonth(orderDate.getMonth() + 1)} ${orderDate.getDate()}${toCorrectDaySuffix(orderDate.getDate())} ${orderDate.getFullYear()} at ${militaryToRegular(orderDate.getHours())}:${minutesToDesiredForm(orderDate.getMinutes())} ${dayInterval} ${findTimeZone(orderDate[Symbol.toPrimitive]('string'))}`;
+    const shortenedDate = `${toEnglishDay(orderDate.getDay())}, ${toAbbrevEnglishMonth(orderDate.getMonth() + 1)} ${orderDate.getDate()}${toCorrectDaySuffix(orderDate.getDate())} ${orderDate.getFullYear()}`
+
+    return [fullDate, shortenedDate];
 }

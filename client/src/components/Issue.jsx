@@ -138,7 +138,7 @@ export default function Issue (props) {
     return (
         <div className="issue-wrapper">  
             <div className="issue-title-line">
-                <p className="date"><b>@{users.length != 0 && users.find(user => user._id.toString() === props.author).username}</b> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; <em>{renderDate(props.createdAt)}</em></p>
+                <p className="date"><b>@{users.length != 0 && users.find(user => user._id.toString() === props.author).username}</b> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; <em className="full-date">{renderDate(props.createdAt)[0]}</em><em className="shortened-date">{renderDate(props.createdAt)[1]}</em></p>
                 <h3 className="issue-title">{props.title}</h3>
             </div>
             <p className="issue-description">{props.description}</p>
